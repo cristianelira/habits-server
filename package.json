@@ -4,7 +4,12 @@
   "main": "soma.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
+    "build": "prisma generate",
+    "start": "tsx src/server.ts",
     "studio": "prisma studio --url file://./dev.db"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "type": "module",
   "keywords": [],
