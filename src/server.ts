@@ -28,12 +28,15 @@ app.register(appRoutes)
 
 
 /**
- * Inicia o servidor HTTP na porta 3333, ouvindo em todas as
- * interfaces de rede (`0.0.0.0`), e loga no console quando estiver
- * pronto para receber requisições.
+ * Inicia o servidor HTTP, ouvindo em todas as interfaces de rede
+ * (`0.0.0.0`), e loga no console quando estiver pronto para receber
+ * requisições.
+ *
+ * A porta é lida de `process.env.PORT` (definida automaticamente por
+ * provedores como o Render) e cai para `3333` em desenvolvimento local.
  */
 app.listen({
-    port: 3333,
+    port: Number(process.env.PORT) || 3333,
     host: '0.0.0.0'
 }).then(() => {
     console.log('HTTP Server running')
